@@ -16,7 +16,7 @@ function _notIndex(regex) {
   return notIndex(fs.readdirSync(__dirname), regex);
 }
 
-_notIndex.then = (regex) => {
+_notIndex.promise = (regex) => {
   return new Promise((resolve, reject) => {
     fs.readdir(__dirname, (err, filenames) => {
       if (err) reject(err);

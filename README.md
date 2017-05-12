@@ -1,10 +1,17 @@
 # not-index
 Require all `lowercase-filenames.js` that are not `index.js`
 
-This is intended to make including directories easier by making require('./dir')
-return an array of required files by putting the following in `index.js`
+This package makes including directories easier by making `require('./dir')`
+return an array of required files.
+
+Example `dir/index.js`
 ```
-module.exports = require('not-index');
+// Synchronous
+module.exports = require('not-index')();
+
+// Promised - using async fs call for reading the directory
+// All require calls still block though
+module.exports = require('not-index').promise();
 ```
 
 Example: the current directory contains the following files. Entries with a
@@ -38,6 +45,7 @@ const requires = require('not-index')();
 Asynchronous
 ```
 require('not-index')
+  .promise()
   .then(requires => {
     // requires is the same as above but the asynchronous fs call is used for
     // reading the current directory
