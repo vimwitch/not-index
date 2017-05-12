@@ -1,16 +1,21 @@
 # not-index
-Require all `lowercase-file.js` files that are not `index.js` in `__dirname`
+Require all `lowercase-filenames.js` that are not `index.js`
+
+This is intended to make including directories easier by making the js files
+chainable.
 
 Example: the current directory contains the following files. Entries with a
 trailing slash are directories.
 ```
-directory/
-file.js
-file-with-dashes.js
-file.with.js
-file.with
-file.js.notjs
-index.js
+my-dir/
+  file.js
+  file-with-dashes.js
+  file.with.js
+  file.with
+  file.js.notjs
+  index.js
+  tmp/
+  zzz/
 ```
 
 The default file matching regex is `/^(?!index)[a-z\-]+\.js$/`

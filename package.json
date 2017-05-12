@@ -1,7 +1,7 @@
 {
   "name": "not-index",
   "version": "1.0.0",
-  "description": "Require all lowercase-file.js files that are not index.js",
+  "description": "Require all `lowercase-filenames.js` that are not `index.js`",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
