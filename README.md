@@ -34,7 +34,7 @@ Synchronous
 ```
 const requires = require('not-index')();
 
-// requires is an array with roughly the following:
+// requires is an array with the following:
 [
   require('./file.js'),
   require('./file-with-dashes.js'),
