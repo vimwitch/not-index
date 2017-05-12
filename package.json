@@ -1,0 +1,29 @@
+{
+  "name": "not-index",
+  "version": "1.0.0",
+  "description": "Require all lowercase-file.js files that are not index.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JChanceHud/not-index.git"
+  },
+  "keywords": [
+    "require",
+    "all",
+    "index",
+    "lodash",
+    "functional"
+  ],
+  "author": "Chance Hudson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JChanceHud/not-index/issues"
+  },
+  "homepage": "https://github.com/JChanceHud/not-index#readme",
+  "dependencies": {
+    "lodash": "^4.17.4"
+  }
+}
