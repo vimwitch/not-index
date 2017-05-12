@@ -7,11 +7,11 @@ return an array of required files
 Example `dir/index.js`
 ```
 // Synchronous
-module.exports = require('not-index')();
+module.exports = require('not-index')(__dirname);
 
 // Promised - using async fs call for reading the directory
 // All require calls still block though
-module.exports = require('not-index').promise();
+module.exports = require('not-index').promise(__dirname);
 ```
 
 Example: the current directory contains the following files. Entries with a
@@ -32,7 +32,7 @@ The default file matching regex is `/^(?!index)[a-z\-]+\.js$/`
 
 Synchronous
 ```
-const requires = require('not-index')();
+const requires = require('not-index')(__dirname);
 
 // requires is an array with the following:
 [
@@ -55,7 +55,7 @@ require('not-index')
 Example exporting classes by name on a single object
 ```
 const _ = require('lodash');
-const requires = require('not-index')();
+const requires = require('not-index')(__dirname);
 
 module.exports = _.reduce(requires, (_classes, _class) => {
   return _.assign(_classes, {
