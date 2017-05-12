@@ -9,6 +9,7 @@ file.js
 file-with-dashes.js
 file.with.js
 file.with
+file.js.notjs
 index.js
 ```
 
@@ -30,7 +31,19 @@ Asynchronous
 ```
 require('not-index')
   .then(requires => {
-    // requies is the same as above but the asynchronous fs call is used for
+    // requires is the same as above but the asynchronous fs call is used for
     // reading the current directory
   });
+```
+
+Example exporting classes by name on a single object
+```
+const _ = require('lodash');
+const requires = require('not-index')();
+
+module.exports = _.reduce(requires, (_classes, _class) => {
+  return _.assign(_classes, {
+    [_class.name]: _class
+  });
+}, {});
 ```
