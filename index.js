@@ -5,7 +5,7 @@ const path = require('path');
 const map = require('lodash.map');
 const filter = require('lodash.filter');
 
-function notIndex(dirname, filenames = [], regex = /^(?!index)[a-z\-]+\.js$/) {
+function notIndex(dirname, filenames = [], regex = /^(?!index)[a-z\-\.]+\.js$/) {
   let output = filenames;
   output = filter(filenames, filename => regex.test(filename));
   output = map(output, filename => path.join(dirname, filename));
