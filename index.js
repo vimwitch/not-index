@@ -2,14 +2,15 @@
 
 const fs = require('fs');
 const path = require('path');
-const _ = require('lodash');
+const map = require('lodash.map');
+const filter = require('lodash.filter');
 
 function notIndex(filenames = [], regex = /^(?!index)[a-z\-]+\.js$/) {
-  return _.chain(filenames)
-    .filter(filename => regex.test(filename))
-    .map(filename => path.join(__dirname, filename))
-    .map(filepath => require(filepath))
-    .value();
+  let output = filenames;
+  output = filter(filenames, filename => regex.test(filename));
+  output = map(output, filename => path.join(__dirname, filename));
+  output = map(output, filepath => require(filepath));
+  return output;
 }
 
 function _notIndex(regex) {
