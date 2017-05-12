@@ -1,8 +1,11 @@
 # not-index
 Require all `lowercase-filenames.js` that are not `index.js`
 
-This is intended to make including directories easier by making the js files
-chainable.
+This is intended to make including directories easier by making require('./dir')
+return an array of required files by putting the following in `index.js`
+```
+module.exports = require('not-index');
+```
 
 Example: the current directory contains the following files. Entries with a
 trailing slash are directories.
