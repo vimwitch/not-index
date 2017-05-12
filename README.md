@@ -2,7 +2,7 @@
 Require all `lowercase-filenames.js` that are not `index.js`
 
 This package makes including directories easier by making `require('./dir')`
-return an array of required files.
+return an array of required files
 
 Example `dir/index.js`
 ```
@@ -34,7 +34,7 @@ Synchronous
 ```
 const requires = require('not-index')();
 
-// requires is an array with filenames matching the following regex:
+// requires is an array with roughly the following:
 [
   require('./file.js'),
   require('./file-with-dashes.js'),
