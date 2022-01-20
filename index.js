@@ -1,30 +1,26 @@
-'use strict';
+const fs = require('fs')
+const path = require('path')
 
-const fs = require('fs');
-const path = require('path');
-const map = require('lodash.map');
-const filter = require('lodash.filter');
-
-function notIndex(dirname, filenames = [], regex = /^(?!index)[a-z\-\.]+\.js$/) {
-  let output = filenames;
-  output = filter(filenames, filename => regex.test(filename));
-  output = map(output, filename => path.join(dirname, filename));
-  output = map(output, filepath => require(filepath));
-  return output;
+function notIndex(dirname, filenames = [], regex = /^(?!index)[0-9a-z\-\.]+\.js$/) {
+  return filenames
+    .filter(filename => regex.test(filename))
+    .map(filename => path.join(dirname, filename))
+    .map(filepath => require(filepath))
 }
 
-function _notIndex(dirname) {
-  const files = fs.readdirSync(dirname);
-  return notIndex(dirname, files);
+function _notIndex(...args) {
+  const dirname = path.join(...args)
+  const files = fs.readdirSync(dirname)
+  return notIndex(dirname, files)
 }
 
 _notIndex.promise = dirname => {
   return new Promise((resolve, reject) => {
     fs.readdir(dirname, (err, files) => {
-      if (err) reject(err);
-      else resolve(notIndex(dirname, files));
-    });
-  });
-};
+      if (err) reject(err)
+      else resolve(notIndex(dirname, files))
+    })
+  })
+}
 
-module.exports = _notIndex;
+module.exports = _notIndex

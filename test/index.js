@@ -1,13 +1,21 @@
-'use strict';
+const notIndex = require('..')
 
-test(require('../')(__dirname));
-
-require('../')
-  .promise(__dirname)
-  .then(test);
-
-function test(requires = []) {
-  if (requires.length !== 3) throw new Error('Invalid count');
+function test(requires = [], expectedCount = 3) {
+  if (requires.length !== expectedCount) throw new Error('Invalid count')
 }
 
-console.log('Everything seems to have worked');
+;(async () => {
+  test(notIndex(__dirname))
+
+  await notIndex
+    .promise(__dirname)
+    .then(test)
+
+  test(notIndex(__dirname, 'subdir'), 2)
+
+  console.log('Everything seems to have worked')
+})()
+  .catch(err => {
+    console.log(err)
+    process.exit(1)
+  })

@@ -14,7 +14,6 @@
     "require",
     "all",
     "index",
-    "lodash",
     "functional"
   ],
   "author": "Chance Hudson",
@@ -23,8 +22,5 @@
     "url": "https://github.com/JChanceHud/not-index/issues"
   },
   "homepage": "https://github.com/JChanceHud/not-index#readme",
-  "dependencies": {
-    "lodash.filter": "^4.6.0",
-    "lodash.map": "^4.6.0"
-  }
+  "dependencies": {}
 }
