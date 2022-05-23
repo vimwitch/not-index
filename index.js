@@ -1,7 +1,7 @@
 const fs = require('fs')
 const path = require('path')
 
-function notIndex(dirname, filenames = [], regex = /^(?!index)[0-9a-z\-\.]+\.js$/) {
+function notIndex(dirname, filenames = [], regex = /^(?!index)[0-9a-z\-\.]+\.(js|ts)$/) {
   return filenames
     .filter(filename => regex.test(filename))
     .map(filename => path.join(dirname, filename))
