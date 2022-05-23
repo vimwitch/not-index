@@ -11,7 +11,8 @@ function test(requires = [], expectedCount = 3) {
     .promise(__dirname)
     .then(test)
 
-  test(notIndex(__dirname, 'subdir'), 2)
+  test(notIndex([__dirname, 'subdir']), 2)
+  test(notIndex([__dirname, 'subdir'], /[a-z0-9]\.js/), 3)
 
   console.log('Everything seems to have worked')
 })()

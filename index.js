@@ -8,10 +8,10 @@ function notIndex(dirname, filenames = [], regex = /^(?!index)[0-9a-z\-\.]+\.(js
     .map(filepath => require(filepath))
 }
 
-function _notIndex(...args) {
-  const dirname = path.join(...args)
+function _notIndex(pathParts, regex) {
+  const dirname = path.join(...[pathParts].flat())
   const files = fs.readdirSync(dirname)
-  return notIndex(dirname, files)
+  return notIndex(dirname, files, regex)
 }
 
 _notIndex.promise = dirname => {
