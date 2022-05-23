@@ -1,6 +1,6 @@
 {
   "name": "not-index",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Require all `lowercase-filenames.js` that are not `index.js`",
   "main": "index.js",
   "scripts": {
