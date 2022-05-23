@@ -15,7 +15,10 @@ module.exports = require('not-index').promise(__dirname);
 
 // Access subdirectory
 // Arguments will be put into path.join
-module.exports = require('not-index')(__dirname, 'subdir')
+module.exports = require('not-index')([__dirname, 'subdir'])
+
+// Access subdirectory and use a custom regex
+module.exports = require('not-index')([__dirname, 'subdir'], /[a-z0-9]\.js/)
 ```
 
 Example: the current directory contains the following files. Entries with a
@@ -32,7 +35,7 @@ my-dir/
   zzz/
 ```
 
-The default file matching regex is `/^(?!index)[0-9a-z\-]+\.js$/`
+The default file matching regex is `/^(?!index)[0-9a-z\-]+\.js$/`. This can be overridden by passing a regex as the last argument (see above).
 
 Synchronous
 ```js
